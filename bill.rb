@@ -16,8 +16,7 @@ class Bill
     items.each{|item|
       total += item.price
     }
-  
-    return total
+  return total
   end
 
   def saved_amount_bill(cart_items)
@@ -35,9 +34,8 @@ class Bill
   def generate_table(items)
     table_data = []
     items.each{|row|
-        table_data << [row.item, row.quantity, "$#{row.price}"]
+        table_data << [row.item.capitalize, row.quantity, "$#{row.price}"]
     }
-    table = Terminal::Table.new :headings => ['Item', 'Quantity', 'Price'], :rows => table_data, :style => {:width => 40, :border_x => "-", :border_i => "-",:border_top => false, :border_bottom => false, :border_y => ""}
-    return table
+    table = Terminal::Table.new :headings => ['Item', 'Quantity', 'Price'], :rows => table_data, :style => {:width => 35, :border_x => "-", :border_i => "-",:border_top => false, :border_bottom => false, :border_y => ""}
   end
 end
