@@ -4,7 +4,7 @@ class Store
 
     def user_input
         puts "Please enter all the items purchased separated by a comma"
-        user_input = gets.chomp
+        user_input = gets.chomp.gsub(/\s+/, "")
         user_items = user_input.split(',')
         
         if user_items.empty?
@@ -24,7 +24,3 @@ class Store
     end    
  
 end
-
-gg = Store.new
-gg.user_input
-
