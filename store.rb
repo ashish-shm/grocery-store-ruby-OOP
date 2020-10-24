@@ -10,8 +10,8 @@ class Store
         if user_items.empty?
             return puts "No Items entered"
         else
-            filtered_items = valid_items_check(user_items)
-            print filtered_items
+            filtered_items = valid_items_check(user_items).tally
+            
         end
     end
 
@@ -24,3 +24,6 @@ class Store
     end    
  
 end
+
+gg = Store.new()
+gg.user_input
