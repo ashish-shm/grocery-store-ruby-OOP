@@ -36,7 +36,9 @@ class Store
         table = bill.table
         total_amount = bill.total_amount
         saved_amount = bill.saved_amount
+        puts "\n"
         puts table
+        puts "\n"
         puts  "Total price : $#{total_amount.round(2)}"
         puts "You saved $#{saved_amount.round(2)} today." 
     end
