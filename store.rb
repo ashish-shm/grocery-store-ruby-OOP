@@ -1,4 +1,6 @@
 require_relative "groceries"
+require_relative "item"
+require_relative "cart"
 
 class Store
 
@@ -11,7 +13,7 @@ class Store
             return puts "No Items entered"
         else
             filtered_items = valid_items_check(user_items).tally
-            
+            add_to_cart(filtered_items)
         end
     end
 
@@ -22,6 +24,14 @@ class Store
         }
 
     end    
+
+    def add_to_cart(items)
+        cart = Cart.new
+        items.each{|item, quantity|
+            cart.add_to_cart(Item.new(item, quantity))
+        }
+        print cart.items[0].price
+    end
  
 end
 

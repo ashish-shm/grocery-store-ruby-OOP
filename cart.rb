@@ -2,11 +2,11 @@ class Cart
 
     attr_reader :items
 
-    def initailize
+    def initialize
         @items = []
     end
 
-    def add_to_cart
+    def add_to_cart(item)
         @items << item
     end
     
