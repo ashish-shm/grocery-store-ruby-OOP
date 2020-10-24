@@ -1,7 +1,7 @@
 require_relative "groceries"
 
 class Item
-    attr_reader :name, :price, :quantity
+    attr_reader :item, :price, :quantity
 
     def initialize(item, quantity)
         @item = item
@@ -21,6 +21,8 @@ class Item
             final_price = (@quantity/sale_qty)*(sale_price) + (@quantity%sale_qty)*(price)
         end
     end
+
+    
     
 end
 

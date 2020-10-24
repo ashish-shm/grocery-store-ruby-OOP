@@ -13,7 +13,8 @@ class Store
             return puts "No Items entered"
         else
             filtered_items = valid_items_check(user_items).tally
-            add_to_cart(filtered_items)
+            cart_and_bill(filtered_items)
+            
         end
     end
 
@@ -25,14 +26,24 @@ class Store
 
     end    
 
-    def add_to_cart(items)
+    def cart_and_bill(items)
         cart = Cart.new
         items.each{|item, quantity|
-            cart.add_to_cart(Item.new(item, quantity))
+            newItem = Item.new(item, quantity)
+            cart.add_to_cart(newItem)
         }
+        bill = cart.generate_bill(items)
+        table = bill.table
+        total_amount = bill.total_amount
+        saved_amount = bill.saved_amount
+        puts table
+        puts  "Total price : $#{total_amount.round(2)}"
+        puts "You saved $#{saved_amount.round(2)} today." 
     end
- 
+
+
 end
+    
 
 gg = Store.new()
 gg.user_input
