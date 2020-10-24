@@ -30,7 +30,6 @@ class Store
         items.each{|item, quantity|
             cart.add_to_cart(Item.new(item, quantity))
         }
-        print cart.items[0].price
     end
  
 end
